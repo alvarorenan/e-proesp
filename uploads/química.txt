@@ -1,0 +1,15 @@
+maior pressao =  maior frequencia de colisao
+
+quanto maior a temperatura, maior a energia cinética das moléculas. 
+percebe-se claramente que elas ficam mais agitadas
+
+Correto. Segundo a teoria dos gases ideais e como é observado na simulação, eles sao formados
+por partículas afastadas por distancias relativamente grandes.
+
+Errado. Como observado na simulação, as colisões dos gases ocorrem de forma elástica, quanto maior
+a velocidade dessas colisões, maior será a pressão
+
+Correto. Percebe-se que não há nenhum tipo de atração ou repulsao entre as moléculas. Apenas colisões
+perfeitamnete elásticas, onde nao há a perda de energia cinética.
+
+Errado. A energia cinética média das moléculas de gás está DIRETAMENTE proporcional à temperatura.

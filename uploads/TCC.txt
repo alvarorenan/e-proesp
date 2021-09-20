@@ -1,0 +1,19 @@
+- pedir projeto dos alunos a Jeferson
+- melhorar introdução e objetivos - catemba
+- criar um projeto que rode
+- home html simples, só pra exemplificar
+
+
+
+diferença entre JAR e WAR
+cadsatrar instituição 
+nome obrigatório•
+end opcional•
+responsavel obrigatório•
+telefone instituicao opcional
+telefone professor opcional
+email prof opcional
+
+https://blog.algaworks.com/spring-security/
+
+LOGIN SENHA

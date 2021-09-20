@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Upload Files</title>
+
+	<link href="/css/style.css" rel="stylesheet" />
+</head>
+<style>
+
+</style>
+<body>
+<section class="layout-content" layout:fragment="corpo">
+<div class="container">
+	<form th:object="${instituicao}" action="/upload" method="post" enctype="multipart/form-data">
+	<br>
+	
+		<label for="file-upload" class="custom-file-upload">
+   				 Clique aqui para selecionar a planilha
+		</label>
+		<input id="file-upload" type="file" name="files">
+
+			
+			<p>
+			<p>
+			<label>Escolha para qual instituição deseja inserir a planilha:</label>
+	
+		<select class="custom-select" th:name="instituicaoId">
+			<option  th:each="instituicao : ${instituicoes}"
+				th:value="${instituicao.id}" th:text="${instituicao.nome}"
+				selected="selected" />
+		</select>
+		<p>
+		<p>
+		 <input class="btn btn-info" type="submit"
+			value="Confirmar Upload"></input>
+	</form>
+	</div>
+</section>
+</body>
+
+</html>

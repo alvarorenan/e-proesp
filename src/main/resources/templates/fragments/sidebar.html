@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<nav class="sidebar sidebar-open" th:fragment="nav-sidebar">
+
+
+
+		<ul class="nav nav-pills">
+			<li class="nav-item"><span class="nav-link active">Instituicoes</span></li>
+			<li class="nav-item"><a class="nav-link"
+				href="/instituicoes/cadastrar"> <i class="oi oi-plus"></i> <span>Cadastrar
+						Instituicoes</span>
+			</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="/instituicoes/listar"> <i class="oi oi-spreadsheet"></i> <span>Listar
+						Instituicoes </span>
+			</a></li>
+			<li class="nav-item"><span class="nav-link active">Planilhas</span></li>
+			<li class="nav-item"><a class="nav-link"
+				href="/alunos/popularCombo"> <i class="oi oi-cloud-upload"></i>
+					<span>Upload Planilha </span></a></li>
+			<li></li>
+			<li class="nav-item"><a class="nav-link"
+				th:href="@{/file/{fileName} (fileName=proesp.xlsx)}"><i
+					class="oi oi-cloud-download"></i><span> Download Planilha Modelo</span></a></li>
+
+
+			<li style="padding-top:30px"class="nav-item"><a class="nav-link"
+			th:href="@{/logout}"><i class="oi oi-account-logout"></i><span style="color:red; font-weight:bold;"> Logout</span></a>
+		</ul>
+
+		
+		
+
+		<style type="text/css">
+		p {
+	margin: 0;
+	color:#666;
+	letter-spacing:1px;
+	line-height:1.8em;
+	font-size:16px;
+	font-weight:400;
+}
+p.account,p.account1 {
+    padding-top: 20px;
+    padding-bottom: 0px;
+    line-height: 1.5em;
+    font-size: 13px;
+}
+p.account a,p.account1 a {
+    color: red;
+    font-size: 20px;
+    text-decoration: none;
+}
+p.account a:hover,p.account1 a:hover {
+    text-decoration: none;
+}
+a:focus, a:hover {
+	text-decoration: none;
+	outline: none;
+}
+</style>
+</body>
+</html>

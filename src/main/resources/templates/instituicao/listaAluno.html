@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+
+	<section class="layout-content" layout:fragment="corpo">
+
+		<nav class="navbar navbar-expand-md bg-light">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><i class="oi oi-caret-right"></i>
+						<span>Lista de Alunos</span></li>
+				</ul>
+
+			</div>
+		</nav>
+
+		<div class="container" id="listagem">
+			<form action="pesquisaaluno" method="post">
+				<label>Pesquisa por nome: </label> <input class="form-control"
+					name="nomepesquisa"> <label>Sexo:</label> <select
+					class="custom-select" name="sexopesquisa">
+					<option value="" selected>Selecione o sexo</option>
+					<option value="M">M</option>
+					<option value="F">F</option>
+				</select> <label>Idade:</label> <select class="custom-select"
+					name="idadepesquisa">
+					<option value=0 selected>Selecione a idade</option>
+					<option value=6>6</option>
+					<option value=7>7</option>
+					<option value=8>8</option>
+					<option value=9>9</option>
+					<option value=10>10</option>
+					<option value=11>11</option>
+					<option value=12>12</option>
+					<option value=13>13</option>
+					<option value=14>14</option>
+					<option value=15>15</option>
+					<option value=16>16</option>
+					<option value=17>17</option>
+				</select> <label>IMC:</label> <select class="custom-select" name="imc">
+					<option value="" selected>Selecione o resultado</option>
+					<option value="saudavel">Zona saudável</option>
+					<option value="risco">Zona de risco</option>
+				</select> <label>Resistência Abdominal:</label> <select class="custom-select"
+					name="resistAbdominal">
+					<option value="" selected>Selecione o resultado</option>
+					<option value="saudavel">Zona saudável</option>
+					<option value="risco">Zona de risco</option>
+				</select> <label>Teste corrida de 6 minutos:</label> <select
+					class="custom-select" name="corrida6min">
+					<option value="" selected>Selecione o resultado</option>
+					<option value="saudavel">Zona saudável</option>
+					<option value="risco">Zona de risco</option>
+				</select> <label>Teste de flexibilidade:</label> <select
+					class="custom-select" name="flexibilidade">
+					<option value="" selected>Selecione o resultado</option>
+					<option value="saudavel">Zona saudável</option>
+					<option value="risco">Zona de risco</option>
+				</select> <label>Força explosiva de membros superiores</label> <select
+					class="custom-select" name="fSuperior">
+					<option value="" selected>Selecione o resultado</option>
+					<option value="fraco">Fraco</option>
+					<option value="razoavel">Razoavel</option>
+					<option value="bom">Bom</option>
+					<option value="muito bom">Muito Bom</option>
+					<option value="excelente">Excelente</option>
+				</select> <label>Força explosiva de membros inferiores</label> <select
+					class="custom-select" name="fInferior">
+					<option value="" selected>Selecione o resultado</option>
+					<option value="fraco">Fraco</option>
+					<option value="razoavel">Razoavel</option>
+					<option value="bom">Bom</option>
+					<option value="muito bom">Muito Bom</option>
+					<option value="excelente">Excelente</option>
+				</select> <label>Teste de agilidade</label> <select class="custom-select"
+					name="agilidade">
+					<option value="" selected>Selecione o resultado</option>
+					<option value="fraco">Fraco</option>
+					<option value="razoavel">Razoavel</option>
+					<option value="bom">Bom</option>
+					<option value="muito bom">Muito Bom</option>
+					<option value="excelente">Excelente</option>
+				</select> <label>Teste de velocidade</label> <select class="custom-select"
+					name="velocidade">
+					<option value="" selected>Selecione o resultado</option>
+					<option value="fraco">Fraco</option>
+					<option value="razoavel">Razoavel</option>
+					<option value="bom">Bom</option>
+					<option value="muito bom">Muito Bom</option>
+					<option value="excelente">Excelente</option>
+				</select> <label>Teste de resistência(corrida)</label> <select
+					class="custom-select" name="corrida6minresist">
+					<option value="" selected>Selecione o resultado</option>
+					<option value="fraco">Fraco</option>
+					<option value="razoavel">Razoavel</option>
+					<option value="bom">Bom</option>
+					<option value="muito bom">Muito Bom</option>
+					<option value="excelente">Excelente</option>
+				</select>
+				<p></p>
+
+				<input class="btn btn-primary" type="submit" value="Filtrar">
+			</form>
+			<p></p>
+			<div th:replace="fragments/alert"></div>
+
+			<div class="table-responsive">
+
+				<table class="table table-striped table-hover table-sm">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Nome</th>
+							<th>Sexo</th>
+							<th>Idade</th>
+							<th>Data de Nascimento</th>
+							<th>Excluir</th>
+							<th>Visualizar</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="a : ${alunos}">
+							<td th:text="${a.id}">3</td>
+							<td th:text="${a.nome}">nome</td>
+							<td th:text="${a.sexo}">sexo</td>
+							<td th:text="${a.idade}">idade</td>
+							<td th:text="${#calendars.format(a.dataN, 'dd/M/yyyy')}">data</td>
+							<td>
+								<!--   <a class="btn btn-info btn-sm" th:href="@{/instituicoes/editar/{id} (id=${i.id}) }" role="button">
+					                 <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
+					             </a>-->
+								<button th:id="${ 'btn_alunos/excluir/' + a.id}" type="button"
+									class="btn btn-danger btn-sm" data-toggle="modal"
+									data-target="#myModal">
+									<span class="oi oi-circle-x" title="Exclusão desabilitada"
+										aria-hidden="true"></span>
+								</button>
+
+							</td>
+							<td><a class="btn btn-info btn-sm"
+								th:href="@{/alunos/listar/{id} (id=${a.id}) }" role="button">
+									<span class="oi oi-eye" title="View" aria-hidden="true"></span>
+							</a></td>
+						</tr>
+					</tbody>
+
+				</table>
+
+			</div>
+			<div class="container">
+			<div style="text-align:center">
+				<h5>
+				<ul class="nav nav-pills">
+					<li class="nav-item"><span class="nav-link active"style="font-weight:bold;color:white">Relatório geral</span></li>
+					</ul>
+				</h5>
+				</div>
+				<h6>
+					<b>Média</b>
+				</h6>
+				<div class="row">
+					<div class="col-sm">
+						<b> IMC </b><span th:text="${#numbers.formatDecimal(mediaImc, 1, 'COMMA', 3, 'POINT')}">t</span>
+
+					</div>
+					<div class="col-sm">
+						<b> Sentar-Alcançar </b><span th:text="${mediaSA}">t</span>
+
+					</div>
+					<div class="col-sm">
+						<b> Quantidade de Abdominais </b><span th:text="${mediaAbdms}">t</span>
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm">
+						<b> Corrida 6 minutos </b><span th:text="${mediaCorr6}">f</span>
+					</div>
+					<div class="col-sm">
+						<b> Corrida 9 minutos </b><span th:text="${mediaCorr9}">f</span>
+					</div>
+					<div class="col-sm">
+						<b> Salto em distância </b><span th:text="${mediaSaltDist}">f</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm">
+						<b> Arremesso Medicine Ball </b><span
+							th:text="${mediaArremessoBall}">f</span>
+					</div>
+					<div class="col-sm">
+						<b> Teste do Quadrado </b><span th:text="${mediaTestQuadrado}">f</span>
+					</div>
+					<div class="col-sm">
+						<b> Corrida 20 metros </b><span th:text="${mediaCorrida20}">f</span>
+					</div>
+				</div>
+				<br>
+				<h6>
+					<b>Mediana</b>
+				</h6>
+				<div class="row">
+					<div class="col-sm">
+						<b> IMC </b><span th:text="${#numbers.formatDecimal(imcMedianaResult, 1, 'COMMA', 3, 'POINT')}">f</span>
+					</div>
+					<div class="col-sm">
+						<b> Sentar-Alcançar </b><span th:text="${sAsMedianaResult}">f</span>
+					</div>
+					<div class="col-sm">
+						<b> Quantidade de Abdominais </b><span
+							th:text="${abdmsMedianaResult}">f</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm">
+						<b> Corrida 6 minutos </b><span th:text="${corr6MedianaResult}">f</span>
+					</div>
+					<div class="col-sm">
+						<b> Corrida 9 minutos </b><span th:text="${corr9MedianaResult}">f</span>
+					</div>
+					<div class="col-sm">
+						<b> Salto em distância </b><span
+							th:text="${saltDistMedianaResult}">f</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm">
+						<b> Arremesso Medicine Ball </b><span
+							th:text="${arremessoBallMedianaResult}">f</span>
+					</div>
+					<div class="col-sm">
+						<b> Teste do Quadrado </b><span
+							th:text="${testQuadradoMedianaResult}">f</span>
+					</div>
+					<div class="col-sm">
+						<b> Corrida 20 metros </b><span
+							th:text="${corrida20mMedianaResult}">f</span>
+					</div>
+				</div>
+				<br>
+				<h6>
+					<b>Desvio Padrão</b>
+				</h6>
+				<div class="row">
+					<div class="col-sm">
+						<b> IMC </b><span th:text="${#numbers.formatDecimal(desvioImc, 1, 'COMMA', 3, 'POINT')}">f</span>
+					</div>
+					<div class="col-sm">
+						<b> Sentar-Alcançar </b><span th:text="${#numbers.formatDecimal(desvioSA, 1, 'COMMA', 3, 'POINT')}">f</span>
+					</div>
+					<div class="col-sm">
+						<b> Quantidade de Abdominais </b><span
+							th:text="${#numbers.formatDecimal(desvioAbdms, 1, 'COMMA', 3, 'POINT')}">f</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm">
+						<b> Corrida 6 minutos </b><span th:text="${#numbers.formatDecimal(desvioCorr6, 1, 'COMMA', 3, 'POINT')}">f</span>
+					</div>
+					<div class="col-sm">
+						<b> Corrida 9 minutos </b><span th:text="${#numbers.formatDecimal(desvioCorr9, 1, 'COMMA', 3, 'POINT')}">f</span>
+					</div>
+					<div class="col-sm">
+						<b> Salto em distância </b><span
+							th:text="${#numbers.formatDecimal(desvioSaltDist, 1, 'COMMA', 3, 'POINT')}">f</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm">
+						<b> Arremesso Medicine Ball </b><span th:text="${#numbers.formatDecimal(desvioArremessoBall, 1, 'COMMA', 3, 'POINT')}">f</span>
+					</div>
+					<div class="col-sm">
+						<b> Teste do Quadrado </b><span th:text="${#numbers.formatDecimal(desvioTestQuadrado, 1, 'COMMA', 3, 'POINT')}">f</span>
+					</div>
+					<div class="col-sm">
+						<b> Corrida 20 metros </b><span
+							th:text="${#numbers.formatDecimal(desvioCorrida20m, 1, 'COMMA', 3, 'POINT')}">f</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div th:replace="fragments/modal :: modal"></div>
+
+	</section>
+
+</body>
+</html>

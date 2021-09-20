@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head><meta charset="UTF-8" /></head>
+<body>
+		
+	<section class="layout-content" layout:fragment="corpo">	
+		<nav class="navbar navbar-expand-md bg-light">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<i class="oi oi-caret-right"></i>
+						<span>Home</span>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		
+		<div class="container">
+			<div id="list-home" class="row">
+				<div class="col-4">
+					<div class="list-group" id="list-tab" role="tablist">
+						<a class="list-group-item list-group-item-action active"
+							id="list-spring-boot-list" data-toggle="list" href="#spring-boot"
+							role="tab" aria-controls="spring-boot">Como realizar os testes</a> <a
+							class="list-group-item list-group-item-action" id="list-sts-list"
+							data-toggle="list" href="#sts" role="tab" aria-controls="sts">Como registrar
+							os resultados dos testes</a>
+					</div>
+				</div>
+				<div class="col-8">
+					<div class="tab-content" id="nav-tabContent">
+						<div class="tab-pane fade show active" id="spring-boot"
+							role="tabpanel" aria-labelledby="list-spring-boot-list">
+							<h5><b>Testes do PROESP-BR</b></h5>
+							<p style="text-align:justify; color:black; padding-bottom:25px;">Para a realização dos testes é de suma importancia que o aplicador leia o 
+							<a th:href="@{/file/{fileName} (fileName=manual-proesp.pdf)}">Manual PROESP-BR 2016</a>, nele contém
+							todos os materiais e orientações necessárias.</p>
+							<h5><b>Percentual de gordura</b></h5>
+							<p style="text-align:justify; color:black; padding-bottom:15px;">Faz-se necessário esclarecer que esse protocolo não se encontra no manual do PROESP-BR. 
+							No entanto, como forma de ampliar os horizontes do profissional de Educação Física e deixar o 
+							sistema mais robusto achou-se necessário colher essas medidas. A fórmula utilizada para calcular o 
+							percentual de gordura foi dos autores Mukherjee e Roche (1984). Tal escolha se justifica em virtude de 
+							compreender a faixa etária, 6 a 18 anos de idade, a qual atinge a faixa etária proposta pelo Projeto 
+							Esporte Brasil.</p>
+							<p style="text-align:justify; color:black; padding-bottom:20px;">Para mulheres:
+	<br>%G=17,19 – 0,74*(idade) + 1,02*(TR) + 0,32*(AX) 
+	<br>TR = Dobra cutânea do tríceps
+	<br>AX = Dobra cutânea axilar média
+
+<br><br>Para homens:
+	<br>%G=12,66 – 0,85*(idade) + 1,10*(TR) + 0,52*(PA) 
+	<br>TR = Dobra cutânea do tríceps
+	<br>PA = Dobra cutânea da panturrilha</p>
+							<h6><b>Dobra cutânea triciptal</b></h6>
+							<p style="text-align:justify; color:black;">É medida na face posterior do braço, paralelamente ao eixo longitudinal, no ponto que compreende a metade
+							da distância entre a borda súpero-lateral do acrômio e o olécramo (COSTA, 2001).</p>
+							<img style="padding-bottom:30px; padding-top:15px;" width="420" height="310" src="img/dobra-triceps.jpg"/>
+							<h6><b>Dobra cutânea axilar média</b></h6>
+							<p style="text-align:justify; color:black;">É localizada no ponto de intersecção entre a linha axilar média e uma linha imaginária transversal na altura
+							do apêndice xifóide do esterno. A medida é realizada obliquamente ao eixo longitudinal, segundo PETROSKI (1995),
+							e transversal segundo JACKSON et alii (1978), com o braço do avaliado deslocado para trás, a fim de facilitar
+							a obtenção da medida (COSTA, 2001).</p>
+							<img style="padding-bottom:30px; padding-top:15px;" width="420" height="310" src="img/dobra-axilar.jpg"/>
+							<h6><b>Dobra cutânea da panturrilha medial</b></h6>
+							<p style="text-align:justify; color:black;">Para a execução desta medida, o avaliado deve estar sentado, com a articulação do joelho em flexão
+							de 90°, o tornozelo em posição anatômica e o pé sem apoio. A dobra é pincada no ponto de maior perímetro
+							da perna, com o polegar da mão esquerda apoiado na borda medial da tíbia (COSTA, 2001).</p>
+							<img style="padding-bottom:30px; padding-top:15px;" width="250" height="350" src="img/dobra-panturrilha.jpg"/>
+							
+						</div>
+						<div class="tab-pane fade" id="sts" role="tabpanel"
+							aria-labelledby="list-sts-list">
+							<p style="text-align:justify; color:black;">Para que os resultados possam ser registrados, é necessário que o aplicador
+							faça o download da  <a th:href="@{/file/{fileName} (fileName=proesp.xlsx)}">Planilha Modelo</a> e
+							preencha devidamente os campos. Após isso, é necessário <a href="instituicoes/cadastrar">criar a instituição </a>
+							a qual essa planilha
+							será vinculada. Feito isso, basta utilizar nossa aba de upload para selecionar o arquivo e a qual
+							instituição ele pertencerá. Pronto, o sistema ira realizar o registro dos alunos e irá gerar dois relatórios,
+							o relatório individual e o relatório geral de cada instituição.</p>
+							
+						</div>
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</section>		
+</body>
+</html>

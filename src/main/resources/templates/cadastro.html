@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+
+<title>E-Proesp</title>
+ <!-- Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Business Login Form a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+   
+    <!-- //Meta-Tags -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+	<!-- css files -->
+	<link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+	<link href="/css/style2.css" rel="stylesheet" type="text/css" media="all"/>
+	<!-- //css files -->
+	
+	<!-- google fonts -->
+	<link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+	<!-- //google fonts -->
+	
+</head>
+<body>
+
+<div class="signupform">
+	<div class="container">
+		<!-- main content -->
+		<div class="agile_info">
+			<div class="w3l_form">
+				<div class="left_grid_info">
+					<h1>Cadastre-se</h1>
+					<p>Utilize o E-Proesp e tenha um relatório preciso de suas planilhas.</p>
+					<img src="images/image.jpg" alt="" />
+				</div>
+			</div>
+			<div class="w3_info">
+				<h2>Registre-se</h2>
+				<p>Insira suas informações</p>
+				<form th:object="${user}" th:action="@{/usuario/save}" method="post" role="form">
+				
+				<input type="hidden" id="id" th:field="*{id}" />
+				<hr class="colorgraph">
+				<div class="input-group">
+				<span class="fa fa-user" aria-hidden="true"></span>
+					<input type="text" id="nome"
+						th:field="*{nome}" class="form-control input-lg" placeholder="Nome" required="" tabindex="1">
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-6">
+						<div class="input-group">
+						<span class="fa fa-user" aria-hidden="true"></span>
+							<input type="text"  id="username"
+								th:field="*{username}" class="form-control input-lg" placeholder="Nome de usuário" required="" tabindex="2">
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-6">
+						<div class="input-group">
+						<span class="fa fa-phone" aria-hidden="true"></span>
+							<input type="text" id="telefone"
+								th:field="*{telefone}" required="" class="form-control input-lg" placeholder="Telefone"
+								maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
+								OnKeyPress="formatar('## #####-####', this)" tabindex="3">
+						</div>
+					</div>
+
+				</div>
+
+				<div class="input-group">
+				<span class="fa fa-envelope" aria-hidden="true"></span>
+					<input type="text"  id="email"
+						th:field="*{email}" class="form-control input-lg" placeholder="Email" required="" tabindex="4">
+				</div>
+				<div class="row">
+					<div class="col-xs-6 ">
+						<div class="input-group">
+						<span class="fa fa-lock" aria-hidden="true"></span>
+							<input type="password"  id="password"
+								th:field="*{password}" class="form-control input-lg" placeholder="Senha"
+								required="" tabindex="5">
+						</div>
+					</div>
+					<div class="col-xs-6 ">
+						<div class="input-group">
+						<span class="fa fa-lock" aria-hidden="true"></span>
+							<input type="password" id="password"
+								class="form-control input-lg" placeholder="Confirmar Senha"
+								required="" tabindex="6">
+						</div>
+					</div>
+					
+				</div>
+
+				<hr class="colorgraph">
+				<div class="row">
+				
+					<div class="col-xs-6 col-md-6">
+						<input type="submit" value="Realizar cadastro"
+							class="btn btn-primary btn-block btn-lg" tabindex="7">
+					</div>
+					
+				</div>
+			</form>
+			<div th:if="${param.error}" class="alert alert-danger" role="alert">
+		            <span style="color:red">Preencha os campos corretamente.</span>
+		        </div>
+			
+				<p class="account1">Já possui cadastro? <a href="/">Fazer login</a></p>
+			</div>
+		</div>
+		<!-- //main content -->
+	</div>
+	<!-- footer -->
+	<div class="footer">
+		<p>&copy; 2021 IFRN Campus Pau dos Ferros</p>
+		<p>Desenvolvido por:<br> Álvaro Carvalho - Pedro Pinheiro - Jeferson Queiroga - Maikon Maia</p>	
+	</div>
+	<!-- footer -->
+</div>
+<script>
+	function formatar(mascara, documento) {
+		var i = documento.value.length;
+		var saida = mascara.substring(0, 1);
+		var texto = mascara.substring(i);
+
+		if (texto.substring(0, 1) != saida) {
+			documento.value += texto.substring(0, 1);
+		}
+
+	}
+</script>
+</body>
+</html>
